@@ -131,9 +131,21 @@
               "devServerTarget": "smart-hardware-shop:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "smart-hardware-shop"
+  "defaultProject": "smart-hardware-shop",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

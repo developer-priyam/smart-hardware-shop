@@ -12,7 +12,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ConfirmationBoxComponent } from './confirmation-box/confirmation-box.component';
 import {MatIconModule} from '@angular/material/icon';
 
 const matModules = [
@@ -32,8 +31,7 @@ const matModules = [
   declarations: [
     SearchBarComponent,
     ProductComponent,
-    ProductActionButtonComponent,
-    ConfirmationBoxComponent
+    ProductActionButtonComponent
   ],
   imports: [
     CommonModule,
@@ -43,8 +41,7 @@ const matModules = [
     SearchBarComponent,
     ProductComponent,
     ProductActionButtonComponent,
-    matModules,
-    ConfirmationBoxComponent
+    matModules
   ]
 })
 export class SharedModule { }
