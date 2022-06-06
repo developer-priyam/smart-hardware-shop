@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductId } from 'src/app/product-inventory/model/product-id.model';
 import { Product } from 'src/app/product-inventory/model/product.model';
@@ -14,19 +14,20 @@ import { ShoppingCartService } from '../service/shopping-cart.service';
   styleUrls: ['./product-list.component.css'],
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   productList: Product[] = [];
   userId: string = '';
-  // addToCartSubscription: Subscription;
+  addToCartSubscription: Subscription;
+  userFetchedSubscription: Subscription;
 
   constructor(private cartService: ShoppingCartService, 
               private sharedService: SharedService,
               private logger: LoggerService) { 
-    this.sharedService.addToCart.subscribe(product => {
+    this.addToCartSubscription = this.sharedService.addToCart.subscribe(product => {
       this.addItemToCart(product);
     });
-    this.sharedService.userFetched.subscribe(user => {
+    this.userFetchedSubscription = this.sharedService.userFetched.subscribe(user => {
       this.userId = user.userId;
       this.getCartItems(this.userId);
     });
@@ -130,6 +131,11 @@ export class ProductListComponent implements OnInit {
       );
     }
     
+  }
+
+  ngOnDestroy(): void {
+    this.addToCartSubscription.unsubscribe();
+    this.userFetchedSubscription.unsubscribe();
   }
 
 }

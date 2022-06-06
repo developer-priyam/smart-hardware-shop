@@ -33,3 +33,7 @@ build/
 .vscode/
 
 node_modules/
+.angular/8
+.browserslistrc
+.editorconfig
+.vscode/

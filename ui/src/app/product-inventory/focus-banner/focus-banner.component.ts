@@ -18,7 +18,7 @@ export class FocusBannerComponent implements OnInit {
     this.currentDisplayProduct = {
       productId: { id: ''},
       description: {
-        categoryId: '',
+        categoryId: 0,
         name: '',
         availableCount: 0,
         price: 0,
@@ -36,10 +36,16 @@ export class FocusBannerComponent implements OnInit {
     .subscribe(
       (response => {
         this.highlightedProduct = response;
-        this.currentDisplayProduct = this.highlightedProduct[0];
+        this.currentDisplayProduct = this.highlightedProduct[this.randomIndex()];
       }),
       ((error: HttpErrorResponse) => this.logger.openSnackBar(error.message, 'close'))
     )
+  }
+
+  randomIndex(): number {
+    const max = this.highlightedProduct.length;
+    const min = 0;
+    return Math.floor(Math.random()*(max-min+1)+min);
   }
 
 }
