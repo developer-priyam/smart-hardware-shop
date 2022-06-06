@@ -7,12 +7,9 @@
   - Door Service - API Gateway
   - User Service
 Java 17
-## Architecture
-![Image of Architecture](https://github.com/developer-priyam/libraryManagement/blob/master/Library-managment-service-architecture.jpeg?raw=true)
 
 # Angular - UI
 Angular 13
-![Image of Architecture](https://github.com/developer-priyam/libraryManagement/blob/master/Lib-ui-Architecture.jpeg?raw=true)
 
 ## Java
 ### Important Classes
@@ -65,7 +62,7 @@ This has following components
 
 ## Ports:
 Java app start 
-  - Door (API Gateway) - at 8080 - http://localhost:8080
+  - Door (API Gateway) - at 8080 - http://localhost:8080 // Not Fully Functional
   - Product Inventory - at 8081 - http://localhost:8081
   - Shopping Cart - at 8082 - http://localhost:8082
   - User Service - at 8083 - http://localhost:8083
