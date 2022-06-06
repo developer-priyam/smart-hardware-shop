@@ -1,0 +1,20 @@
+<div class="banner col-md-10">
+    <app-focus-banner [highlightedProduct]="highlightedProducts"></app-focus-banner>
+</div>
+<div class="search-box col-md-6">
+    <app-search-bar (searchedText)="getFilteredProducts($event)" [productNames]="getProductNames()"></app-search-bar>
+</div>
+<div *ngIf="productList.length > 0">
+    <div class="col-md-3 inventory-product" 
+        *ngFor="let product of productList">
+        <app-product [name]="product!.description.name"
+                     [price]="product!.description.price"
+                     [status]="getProductStatus(product!)">
+        </app-product>
+        <button class="action-btn-left" mat-stroked-button 
+                color="accent"
+                (click)="addItemToCart(product.productId.id)">Add to Cart</button>
+        <button class="action-btn-right" mat-stroked-button color="primary" (click)="loadProductDetails(product)" ><mat-icon>details</mat-icon>...</button>
+    </div>
+</div>
+<div class="error-message" *ngIf="productList.length == 0">No Product in the Inventory. Check After Some time</div>

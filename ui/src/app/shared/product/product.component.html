@@ -1,0 +1,9 @@
+<mat-card class="product">
+    <mat-card-title-group>
+      <mat-card-title>{{ name }}</mat-card-title>
+      <mat-card-subtitle class="status" [ngClass]="{'green': status === 'In Stock', 'red': status === 'Sold Out'}">{{ status }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content class="product-price">
+        {{ price }} <span class="product-currency"> NOK / piece </span>
+    </mat-card-content>
+</mat-card>

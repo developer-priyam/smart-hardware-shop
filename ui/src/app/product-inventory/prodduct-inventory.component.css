@@ -1,0 +1,22 @@
+.inventory-product {
+    float: left; 
+    margin: 30px; 
+    border: 1px dotted #333;
+
+}
+
+.banner {
+    margin: 15px auto;
+}
+
+.search-box {
+    margin: 25px auto;
+}
+
+.action-btn-left {
+    text-align: left;
+}
+
+.action-btn-right {
+    text-align: right;
+}

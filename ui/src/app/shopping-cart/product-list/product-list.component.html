@@ -1,0 +1,20 @@
+<div *ngIf="productList.length > 0">
+    <div class="product-container col-md-9" *ngFor="let product of productList">
+        <app-product [name]="product!.description.name"
+                    [price]="product!.description.price"
+                    [status]="getProductStatus(product)">
+        </app-product>
+        <app-product-action-button (updatedCount)="updateQuantity(product, $event)" [number]="getQuantity(product!.productId)"></app-product-action-button>
+    </div>
+    <hr/>
+    <div style="margin: 25px;">
+        <div class="col-md-6 total-element">Total</div>
+        <div class="col-md-6 price-number"> {{ getCartTotal() }} NOK</div>
+    </div>
+
+    <div>
+        <button class="col-md-6" mat-stroked-button color="primary" (click)="buyNow()" >Checkout</button>
+        <button class="col-md-6" mat-stroked-button color="warn" (click)="cleanCart()">Clear Cart</button>
+    </div>
+</div>
+<div class="error-message" *ngIf="productList.length == 0">Empty Cart Doesn't looks good</div>

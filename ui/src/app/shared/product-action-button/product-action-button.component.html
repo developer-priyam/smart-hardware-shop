@@ -1,0 +1,6 @@
+<mat-card-actions>
+    <button class="action-btn" *ngIf="number === 1" (click)="decreaseCount()" mat-button><mat-icon>delete_outline</mat-icon></button>
+    <button class="action-btn" *ngIf="number > 1" (click)="decreaseCount()" mat-button>--</button>
+    <input class="quantity-box" matInputx value="{{  number }}">
+    <button class="action-btn" mat-button (click)="increaseCount()"><mat-icon>add</mat-icon></button>
+</mat-card-actions>
