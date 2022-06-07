@@ -12,32 +12,31 @@ import { CartItem } from '../model/cart-item.model';
 export class ShoppingCartService {
   cart: string = 'cart';
   product: string = 'products';
-  base = 'http://localhost:8082/';
-  productBase = 'http://localhost:8081/';
+  base = environment.baseURLCart;
 
   constructor(private httpClient: HttpClient) { }
 
   getProductsInCart(userId: string): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(`${this.base}${this.cart}/${userId}`);
+    return this.httpClient.get<CartItem[]>(`${this.base}${environment.cartService}/${this.cart}/${userId}`);
   }
 
   addProductInCart(userId: string, item: CartItem): Observable<CartItem[]> {
-    return this.httpClient.post<CartItem[]>(`${this.base}${this.cart}/${userId}`, item);
+    return this.httpClient.post<CartItem[]>(`${this.base}${environment.cartService}/${this.cart}/${userId}`, item);
   }
 
   updateProductInCart(userId: string, item: CartItem): Observable<CartItem[]> {
-    return this.httpClient.put<CartItem[]>(`${this.base}${this.cart}/${userId}`, item);
+    return this.httpClient.put<CartItem[]>(`${this.base}${environment.cartService}/${this.cart}/${userId}`, item);
   }
 
   deleteProductFromCart(userId: string, productId: string): Observable<CartItem[]> {
-    return this.httpClient.delete<CartItem[]>(`${this.base}${this.cart}/${userId}/${productId}`);
+    return this.httpClient.delete<CartItem[]>(`${this.base}${environment.cartService}/${this.cart}/${userId}/${productId}`);
   }
 
   getProductsForCartItems(productIds: ProductId[]): Observable<Product[]> {
-    return this.httpClient.post<Product[]>(`${this.productBase}${this.product}`, productIds);
+    return this.httpClient.post<Product[]>(`${this.base}${environment.inventoryService}/${this.product}`, productIds);
   }
 
   clearUserCart(userId: string): Observable<any> {
-    return this.httpClient.put<any>(`${this.base}${this.cart}/clear/${userId}`, {});
+    return this.httpClient.put<any>(`${this.base}${environment.cartService}/${this.cart}/clear/${userId}`, {});
   }
 }

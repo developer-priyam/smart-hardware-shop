@@ -26,11 +26,14 @@ public class InMemoryCartStorage {
     return inMemoryCartStorage;
   }
 
+  /**
+   * We will verify users in future, when we have proper authentication and authorization module.
+   * @param userId
+   * @return
+   */
+  //    if (InMemoryStoreValidator.isValidUser(userId, shoppingCart.keySet())) {
   public List<CartItem> getShoppingCartOfTheUser(UUID userId) {
-    if (InMemoryStoreValidator.isValidUser(userId, shoppingCart.keySet())) {
       return shoppingCart.get(userId);
-    }
-    return Collections.emptyList();
   }
 
   public void addProductIntoCart(UUID userId, UUID productId) {

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/cart-service")
 public class CartController {
 
   private final Cart cart;

@@ -1,4 +1,5 @@
-<div class="banner col-md-10">
+
+<div *ngIf="highlightedProducts.length > 0" class="banner col-md-10">
     <app-focus-banner [highlightedProduct]="highlightedProducts"></app-focus-banner>
 </div>
 <div class="search-box col-md-6">

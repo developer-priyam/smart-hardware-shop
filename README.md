@@ -19,7 +19,9 @@ InventoryController - It is the front controller of the inventory
 CartController
 #### User Service - This is a service out of scope for this task. Just provides a defaut / dummy user .
 UserController
-
+#### Door Service - This is a API Gateway Service uses Spring Cloud Gateway .
+#### Service Discovery Service - Uses Netflix Eureka for registry and discovery.
+ .
 There are different endpoints in each respective service, Each have the documentation within the service
 
 ### POJS's
@@ -45,9 +47,9 @@ This has following components
 ### User Component - show the books issued to a user and performs book return operation and user load request.
 
 # Test Cases
-## Java - Junit, Services have both Unit and Integration test for Product Inventory and Shopping cart Service
+#### Java - Junit, Services have both Unit and Integration test for Product Inventory and Shopping cart Service
 
-## Angular - Test cases are written in karma
+#### Angular - Test cases are written in karma
 
 # How To Build and Run
 - Run 'mvn install' in each java project inside backend folder.
@@ -62,7 +64,7 @@ This has following components
 
 ## Ports:
 Java app start 
-  - Door (API Gateway) - at 8080 - http://localhost:8080 // Not Fully Functional
+  - Door (API Gateway) - at 8080 - http://localhost:8080 // Not Fully Functional, Sometimes inefficient. I guess due to my local machine configuration.
   - Product Inventory - at 8081 - http://localhost:8081
   - Shopping Cart - at 8082 - http://localhost:8082
   - User Service - at 8083 - http://localhost:8083
